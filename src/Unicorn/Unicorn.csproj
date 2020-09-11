@@ -86,6 +86,7 @@
     <Compile Include="ControlPanel\Controls\BatchProcessingControls.cs" />
     <Compile Include="ControlPanel\Controls\ConfigurationInfo.cs" />
     <Compile Include="ControlPanel\Controls\GlobalWarnings.cs" />
+    <Compile Include="ControlPanel\Controls\HtmlFilter.cs" />
     <Compile Include="ControlPanel\Controls\QuickReference.cs" />
     <Compile Include="ControlPanel\Controls\NoConfigurations.cs" />
     <Compile Include="ControlPanel\Security\ChallengeStoreSitecoreLogger.cs" />

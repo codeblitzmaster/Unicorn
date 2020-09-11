@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
+using Sitecore.Configuration;
 using Sitecore.SecurityModel;
 using Unicorn.ControlPanel.Controls;
 using SecurityState = Unicorn.ControlPanel.Security.SecurityState;
@@ -11,11 +12,12 @@ namespace Unicorn.ControlPanel.Responses
 	{
 		private readonly SecurityState _securityState;
 		private readonly IControlPanelControl[] _controls;
-
+		private readonly bool _EnableHelixConventionFilter;
 		public ControlPanelPageResponse(SecurityState securityState, params IControlPanelControl[] controls)
 		{
 			_securityState = securityState;
 			_controls = controls;
+			_EnableHelixConventionFilter = Settings.GetBoolSetting("Unicorn.EnableHelixConventionFilter", false);
 		}
 
 		public virtual void Execute(HttpResponseBase response)
@@ -26,7 +28,12 @@ namespace Unicorn.ControlPanel.Responses
 			var masterControls = new List<IControlPanelControl>();
 
 			masterControls.AddRange(CreateHeaderControls(_securityState));
-			
+
+			if (_EnableHelixConventionFilter)
+			{
+				masterControls.AddRange(CreateFilterControls());
+			}
+
 			masterControls.AddRange(_controls);
 
 			masterControls.AddRange(CreateFooterControls());
@@ -54,6 +61,11 @@ namespace Unicorn.ControlPanel.Responses
 		protected virtual IEnumerable<IControlPanelControl> CreateFooterControls()
 		{
 			yield return new HtmlFooter();
-		} 
+		}
+
+		protected virtual IEnumerable<IControlPanelControl> CreateFilterControls()
+		{
+			yield return new HtmlFilter();
+		}
 	}
 }
