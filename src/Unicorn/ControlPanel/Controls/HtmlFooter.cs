@@ -124,7 +124,9 @@ namespace Unicorn.ControlPanel.Controls
 			});
 
 			UpdateOptions();
-
+			
+			/* Unicorn Filter Initilization */
+			uf.init();
 		});
 
 		function UpdateOptions() {
