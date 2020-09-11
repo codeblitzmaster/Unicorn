@@ -69,6 +69,16 @@ namespace Unicorn.ControlPanel.Controls
 						padding: 0 0 8px 0;
 					}
 
+          .filter-container li{
+            clear: both;
+            display: inline-block;
+            margin-right: 30px;
+          }
+
+          .filter-container li>span{
+            margin: 0 10px 0 0;
+          }
+
 					select {
 						border: 2px solid #E35131;
 						color: #E35131;
@@ -160,13 +170,13 @@ namespace Unicorn.ControlPanel.Controls
 						padding-top: 1.7rem;
 					}
 
-					.fakebox {
+					.fakebox, .filter-item{
 						font-weight: bold;
 						cursor: pointer;
 						position: relative;
 					}
 
-						.fakebox > span {
+						.fakebox > span, .filter-item > span{
 							width: 20px;
 							height: 20px;
 							border: 2px solid #E35131;
@@ -184,7 +194,7 @@ namespace Unicorn.ControlPanel.Controls
 							margin: .75em .4em 0 0;
 						}
 
-						.fakebox.checked > span:before {
+						.fakebox.checked > span:before, .filter-item.checked > span:before {
 							content: '✓';
 							margin-left: 3px;
 							color: #E35131;
