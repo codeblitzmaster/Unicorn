@@ -69,15 +69,15 @@ namespace Unicorn.ControlPanel.Controls
 						padding: 0 0 8px 0;
 					}
 
-          .filter-container li{
-            clear: both;
-            display: inline-block;
-            margin-right: 30px;
-          }
+					.filter-container li{
+						clear: both;
+						display: inline-block;
+						margin-right: 30px;
+					}
 
-          .filter-container li>span{
-            margin: 0 10px 0 0;
-          }
+					.filter-container li>span{
+						margin: 0 10px 0 0;
+					}
 
 					select {
 						border: 2px solid #E35131;
