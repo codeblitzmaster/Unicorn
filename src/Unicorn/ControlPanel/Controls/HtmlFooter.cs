@@ -66,7 +66,7 @@ namespace Unicorn.ControlPanel.Controls
 
 				$this.toggleClass('checked');
 
-				var $fakeboxes = $('.fakebox:not(.fakebox-all)');
+				var $fakeboxes = $('.fakebox:not(.fakebox-all):visible');
 
 				if($this.hasClass('checked')) $fakeboxes.addClass('checked');
 				else $fakeboxes.removeClass('checked');
@@ -76,7 +76,7 @@ namespace Unicorn.ControlPanel.Controls
 		});
 
 		function UpdateBatch() {
-			var $fakeboxes = $('.fakebox:not(.fakebox-all)');
+			var $fakeboxes = $('.fakebox:not(.fakebox-all):visible');
 			var checked = $fakeboxes.filter('.checked')
 				.map(function() { return $(this).text().trim(); })
 				.get();
